@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORILLA X | Elite Gridiron Armor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="loading">
+
+    <!-- ================================
+     PRELOADER
+================================ -->
+    <div id="preloader" aria-hidden="true">
+        <div class="pre-inner">
+            <img src="logoGorilaWeb.png" alt="" class="pre-logo" width="130" height="auto">
+            <div class="pre-bar">
+                <div class="pre-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================
+     TOAST
+================================ -->
+    <div id="toast" role="status" aria-live="polite">
+        <i class="ph-bold ph-check-circle"></i>
+        <span id="toastMsg"></span>
+    </div>
+
+    <!-- ================================
+     CART OVERLAY + DRAWER
+================================ -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <aside id="cartDrawer" class="cart-drawer" aria-label="Carrito" aria-hidden="true">
+        <div class="cart-head">
+            <div>
+                <h2>CARRITO</h2>
+                <span id="cartSubtitle">0 artículos</span>
+            </div>
+            <button id="closeCart" class="icon-close" aria-label="Cerrar carrito">
+                <i class="ph-bold ph-x"></i>
+            </button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <div class="cart-empty">
+                <i class="ph ph-shopping-cart-simple"></i>
+                <p>Tu carrito está vacío</p>
+                <span>Añade equipación de élite</span>
+            </div>
+        </div>
+        <div class="cart-foot">
+            <div class="cart-rows">
+                <div class="cart-row"><span>Subtotal</span><span id="cartSub">0.00€</span></div>
+                <div class="cart-row"><span>Envío</span><span class="tag-free">GRATIS</span></div>
+                <div class="cart-row cart-total-row">
+                    <span>TOTAL</span><span id="cartTot">0.00€</span>
+                </div>
+            </div>
+            <button class="btn-primary w100" id="btnCheckout">
+                <i class="ph ph-lock-simple"></i>&nbsp; FINALIZAR COMPRA
+            </button>
+            <button class="btn-ghost w100 mt8" id="btnContinue">Seguir comprando</button>
+        </div>
+    </aside>
+
+    <!-- ================================
+     ANNOUNCEMENT
+================================ -->
+    <div class="announcement">
+        <i class="ph-bold ph-globe"></i>
+        ENVÍO INTERNACIONAL GRATIS EN PEDIDOS +200€ &nbsp;·&nbsp; TEMPORADA 2026 &nbsp;·&nbsp; STOCK LIMITADO
+    </div>
+
+    <!-- ================================
+     HEADER
+================================ -->
+    <header class="header" id="mainHeader">
+        <a href="#" class="logo">
+            <img src="logoGorilaWeb.png" alt="GX" width="32" height="32">
+            <span class="logo-name">GORILLA<em>X</em></span>
+        </a>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#productos"><i class="ph ph-helmet"></i>Equipación</a></li>
+                <li><a href="#custom"><i class="ph ph-paint-brush-broad"></i>Custom</a></li>
+                <li><a href="#tecnologia"><i class="ph ph-atom"></i>Tecnología</a></li>
+                <li><a href="#nosotros"><i class="ph ph-users-three"></i> Sobre GX</a></li>
+                <li><a href="#media"><i class="ph ph-video-camera"></i> Media</a></li>
+                <li><a href="#contacto"><i class="ph ph-envelope"></i> Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="nav-btns">
+            <button class="icon-btn" aria-label="Buscar">
+                <i class="ph-bold ph-magnifying-glass"></i>
+            </button>
+            <button class="cart-btn" id="openCart" aria-label="Carrito de compra">
+                <i class="ph-bold ph-shopping-cart-simple"></i>
+                <span class="cart-label">CARRITO</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================================
+     HERO
+================================ -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text reveal">
+                    <div class="tag"><span class="tag-dot"></span>Edición Limitada · Temporada 2026</div>
+                    <h1>DOMINA<br><em>EL IMPACTO</em></h1>
+                    <p>Ingeniería bio-inspirada aplicada al campo. El casco más ligero, resistente y avanzado para la
+                        élite de la NFL.</p>
+                    <div class="hero-ctas">
+                        <a href="#productos" class="btn-primary">Ver Colección</a>
+                        <a href="#custom" class="btn-outline">Diseña el Tuyo</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat"><strong>40<em>%</em></strong><span>Más absorción</span></div>
+                        <div class="stat-div"></div>
+                        <div class="stat"><strong>900<em>g</em></strong><span>Peso mínimo</span></div>
+                        <div class="stat-div"></div>
+                        <div class="stat"><strong>12<em>+</em></strong><span>Equipos élite</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal-r">
+                    <img src="logoGorilaWeb.png" alt="Gorilla X" class="hero-logo">
+                </div>
+            </div>
+            <div class="scroll-hint" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ================================
+     PRODUCTS
+================================ -->
+        <section id="productos" class="products">
+            <div class="s-head reveal">
+                <span class="eyebrow">La Armadura</span>
+                <h2>EQUIPACIÓN<br>DE ÉLITE</h2>
+                <p>Equipamiento de alto rendimiento para linieros, receptores y QBs.</p>
+            </div>
+            <div class="product-grid">
+
+                <article class="product-card reveal" style="--d:0ms">
+                    <div class="card-img ci-blue">
+
+                        <img src="cascoGamaBaja.png" alt="Gorilla Apex V1" class="product-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <h3>GORILLA APEX V1</h3>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <p>Velocidad extrema y protección periférica total. Carbono aeroespacial.</p>
+                        <div class="card-foot-row">
+                            <strong class="price">309.00€</strong>
+                            <button class="atc" data-name="Gorilla Apex V1" data-price="309">
+                                <i class="ph ph-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card reveal" style="--d:80ms">
+                    <div class="card-img ci-black">
+                        <img src="cascoGamaMedia.png" alt="Gorilla Stealth" class="product-img">
+                        <span class="badge b-ltd">NEW</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <h3>GORILLA STEALTH</h3>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <p>Acabado mate anti-reflejos premium. El favorito de los defensas élite.</p>
+                        <div class="card-foot-row">
+                            <strong class="price">329.00€</strong>
+                            <button class="atc" data-name="Gorilla Stealth" data-price="329">
+                                <i class="ph ph-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card reveal" style="--d:160ms">
+                    <div class="card-img ci-gold">
+                        <img src="cascoGamaAlta.png" alt="Gorilla Titan V2" class="product-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <h3>GORILLA TITAN V2</h3>
+                            <span class="stars">★★★★☆</span>
+                        </div>
+                        <p>Protección máxima reforzada para linieros de primera línea.</p>
+                        <div class="card-foot-row">
+                            <strong class="price">379.00€</strong>
+                            <button class="atc" data-name="Gorilla Titan V2" data-price="379">
+                                <i class="ph ph-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card reveal" style="--d:240ms">
+                    <div class="card-img ci-white">
+                        <img src="cascoGamaGhost.png" alt="Gorilla Titan V2" class="product-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-row">
+                            <h3>GORILLA GHOST</h3>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <p>El casco más ligero del mercado. Solo 900 gramos de pura velocidad.</p>
+                        <div class="card-foot-row">
+                            <strong class="price">399.00€</strong>
+                            <button class="atc" data-name="Gorilla Ghost" data-price="399">
+                                <i class="ph ph-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================================
+     CUSTOMIZER
+================================ -->
+        <section id="custom" class="customizer">
+            <div class="s-head reveal" style="text-align:center">
+                <span class="eyebrow">Tu Identidad</span>
+                <h2>DISEÑA TU<br><em class="blue-text">ARMADURA</em></h2>
+                <p>Configura cada detalle con precisión milimétrica y descarga tu diseño.</p>
+            </div>
+
+            <div class="custom-layout">
+
+                <!-- PREVIEW PANEL -->
+                <div class="custom-preview reveal">
+                    <div class="preview-shell">
+                        <div class="preview-top-bar">
+                            <span><i class="ph ph-circles-three"></i> GORILLA X CONFIGURATOR</span>
+                            <span class="live-dot"><span class="pulse"></span>LIVE</span>
+                        </div>
+                        <canvas id="helmetCanvas" width="460" height="480"></canvas>
+                        <div class="preview-btns">
+                            <button id="btnDownload" class="p-btn">
+                                <i class="ph ph-download-simple"></i> PNG
+                            </button>
+                            <button id="btnReset" class="p-btn">
+                                <i class="ph ph-arrow-counter-clockwise"></i> Reset
+                            </button>
+                            <button id="addCustomCart" class="p-btn p-btn-cta">
+                                <i class="ph ph-shopping-cart-simple"></i> Añadir · 449€
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLS PANEL -->
+                <div class="ctrl-panel reveal-r">
+                    <div class="ctrl-tabs" role="tablist">
+                        <button class="ctab active" data-tab="color" role="tab"><i
+                                class="ph ph-palette"></i>Color</button>
+                        <button class="ctab" data-tab="design" role="tab"><i
+                                class="ph ph-lines-three-bold"></i>Diseño</button>
+                        <button class="ctab" data-tab="identity" role="tab"><i
+                                class="ph ph-user-circle"></i>Equipo</button>
+                        <button class="ctab" data-tab="visor" role="tab"><i class="ph ph-eye"></i>Visera</button>
+                    </div>
+
+                    <!-- TAB: COLOR -->
+                    <div class="tab-panel active" id="tab-color">
+                        <div class="cg">
+                            <label class="clabel">Color del Casco</label>
+                            <div class="swatch-grid" id="colorSwatches">
+                                <button class="swatch active" data-color="#0052FF" style="background:#0052FF"
+                                    title="Cobalt Blue"></button>
+                                <button class="swatch" data-color="#0D0D0D"
+                                    style="background:#0D0D0D;border:2px solid #333" title="Onyx Black"></button>
+                                <button class="swatch" data-color="#FFD700" style="background:#FFD700"
+                                    title="Championship Gold"></button>
+                                <button class="swatch" data-color="#F0F0F0"
+                                    style="background:#F0F0F0;border:2px solid #444" title="Arctic White"></button>
+                                <button class="swatch" data-color="#C41E3A" style="background:#C41E3A"
+                                    title="Cardinal Red"></button>
+                                <button class="swatch" data-color="#006400" style="background:#006400"
+                                    title="Forest Green"></button>
+                                <button class="swatch" data-color="#FF5500" style="background:#FF5500"
+                                    title="Burnt Orange"></button>
+                                <button class="swatch" data-color="#4B0082" style="background:#4B0082"
+                                    title="Deep Purple"></button>
+                                <button class="swatch" data-color="#1A237E" style="background:#1A237E"
+                                    title="Navy Blue"></button>
+                                <button class="swatch" data-color="#8B0000" style="background:#8B0000"
+                                    title="Dark Red"></button>
+                                <button class="swatch" data-color="#1B5E20" style="background:#1B5E20"
+                                    title="Dark Green"></button>
+                                <button class="swatch" data-color="#546E7A" style="background:#546E7A"
+                                    title="Steel Grey"></button>
+                            </div>
+                            <div class="picker-row">
+                                <label>Color exacto:</label>
+                                <div class="picker-wrap">
+                                    <input type="color" id="customColor" value="#0052FF">
+                                    <span id="hexDisplay">#0052FF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cg">
+                            <label class="clabel">Color de la Rejilla</label>
+                            <div class="picker-wrap">
+                                <input type="color" id="maskColor" value="#1c1c1c">
+                                <span id="maskHex">#1c1c1c</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: DESIGN -->
+                    <div class="tab-panel" id="tab-design">
+                        <div class="cg">
+                            <label class="clabel">Franja Central</label>
+                            <div class="opt-grid">
+                                <button class="opt active" data-stripe="none">Sin franja</button>
+                                <button class="opt" data-stripe="single">Sencilla</button>
+                                <button class="opt" data-stripe="double">Doble</button>
+                                <button class="opt" data-stripe="triple">Triple</button>
+                                <button class="opt" data-stripe="lightning">Rayo</button>
+                                <button class="opt" data-stripe="nfl">NFL Style</button>
+                            </div>
+                            <div class="picker-row mt8">
+                                <label>Color franja:</label>
+                                <div class="picker-wrap">
+                                    <input type="color" id="stripeColor" value="#FFFFFF">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cg">
+                            <label class="clabel">Acabado de Pintura</label>
+                            <div class="opt-grid">
+                                <button class="opt active" data-finish="gloss">Brillante</button>
+                                <button class="opt" data-finish="matte">Mate</button>
+                                <button class="opt" data-finish="chrome">Cromado</button>
+                                <button class="opt" data-finish="carbon">Carbono</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: IDENTITY -->
+                    <div class="tab-panel" id="tab-identity">
+                        <div class="cg">
+                            <label class="clabel">Número / Iniciales</label>
+                            <div class="number-row">
+                                <input type="text" id="helmetNumber" maxlength="2" placeholder="00" class="num-input">
+                                <div class="picker-wrap">
+                                    <input type="color" id="numColor" value="#FFFFFF">
+                                    <span>Color</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cg">
+                            <label class="clabel">Logo / Imagen de Equipo</label>
+                            <div class="upload-zone" id="uploadZone">
+                                <input type="file" id="logoUpload" accept="image/*">
+                                <div class="upload-content">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <span>Arrastra aquí o haz clic</span>
+                                    <small>PNG transparente recomendado · Máx 5MB</small>
+                                </div>
+                            </div>
+                            <div id="logoCtrl" class="logo-ctrl hidden">
+                                <p class="file-name" id="fileName"></p>
+                                <div class="slider-g">
+                                    <span>Opacidad</span>
+                                    <input type="range" id="logoOpac" min="10" max="100" value="85" class="gslider">
+                                    <span id="opacVal">85%</span>
+                                </div>
+                                <div class="slider-g">
+                                    <span>Tamaño</span>
+                                    <input type="range" id="logoSz" min="15" max="85" value="45" class="gslider">
+                                    <span id="szVal">45%</span>
+                                </div>
+                                <div class="slider-g">
+                                    <span>Pos. Horizontal</span>
+                                    <input type="range" id="logoPosX" min="-80" max="80" value="0" class="gslider">
+                                </div>
+                                <div class="slider-g">
+                                    <span>Pos. Vertical</span>
+                                    <input type="range" id="logoPosY" min="-60" max="60" value="0" class="gslider">
+                                </div>
+                                <button id="removeLogo" class="remove-btn"><i class="ph ph-trash"></i> Eliminar
+                                    imagen</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: VISOR -->
+                    <div class="tab-panel" id="tab-visor">
+                        <div class="cg">
+                            <label class="clabel">Tipo de Visera</label>
+                            <div class="visor-grid">
+                                <button class="vcrd active" data-visor="none">
+                                    <div class="vp vp-none"></div>
+                                    <span>Sin visera</span>
+                                </button>
+                                <button class="vcrd" data-visor="clear">
+                                    <div class="vp vp-clear"></div>
+                                    <span>Transparente</span>
+                                </button>
+                                <button class="vcrd" data-visor="smoke">
+                                    <div class="vp vp-smoke"></div>
+                                    <span>Ahumado</span>
+                                </button>
+                                <button class="vcrd" data-visor="mirror">
+                                    <div class="vp vp-mirror"></div>
+                                    <span>Espejado</span>
+                                </button>
+                                <button class="vcrd" data-visor="gold">
+                                    <div class="vp vp-gold"></div>
+                                    <span>Dorado</span>
+                                </button>
+                                <button class="vcrd" data-visor="red">
+                                    <div class="vp vp-red"></div>
+                                    <span>Rojo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ctrl-cta">
+                        <div class="cta-price">
+                            <span>Tu casco personalizado</span>
+                            <strong>449.00€</strong>
+                        </div>
+                        <button class="btn-primary w100" id="addCustomCart2">
+                            <i class="ph ph-shopping-cart-simple"></i>&nbsp; Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+     TECHNOLOGY
+================================ -->
+        <section id="tecnologia" class="tech">
+            <div class="tech-grid">
+
+                <!-- TECH VISUAL PANEL -->
+                <div class="tech-visual reveal">
+                    <div class="tech-panel">
+                        <div class="tech-rings-wrap">
+                            <div class="t-ring r1"></div>
+                            <div class="t-ring r2"></div>
+                            <div class="t-ring r3"></div>
+                            <div class="t-center">
+                                <i class="ph-fill ph-helmet"></i>
+                                <span>GX·TECH 2026</span>
+                            </div>
+                        </div>
+                        <!-- TECH BANNER / STATS -->
+                        <div class="tech-banner">
+                            <div class="tb-header">
+                                <span class="tb-badge"><i class="ph ph-certificate"></i> CERTIFICADO NFL</span>
+                                <span class="tb-title">ANÁLISIS DE IMPACTO</span>
+                            </div>
+                            <div class="tb-stats">
+                                <div class="tb-stat">
+                                    <span class="ts-n">4.7<em>mm</em></span>
+                                    <span class="ts-l">Carbono</span>
+                                </div>
+                                <div class="tb-stat">
+                                    <span class="ts-n">40<em>%</em></span>
+                                    <span class="ts-l">Absorción+</span>
+                                </div>
+                                <div class="tb-stat">
+                                    <span class="ts-n">−8<em>°C</em></span>
+                                    <span class="ts-l">Temperatura</span>
+                                </div>
+                                <div class="tb-stat">
+                                    <span class="ts-n">900<em>g</em></span>
+                                    <span class="ts-l">Peso récord</span>
+                                </div>
+                            </div>
+                            <div class="tb-bars">
+                                <div class="tbb-item">
+                                    <span>Protección</span>
+                                    <div class="tbb">
+                                        <div class="tbb-fill" style="--w:92%"></div>
+                                    </div>
+                                    <span>92%</span>
+                                </div>
+                                <div class="tbb-item">
+                                    <span>Ligereza</span>
+                                    <div class="tbb">
+                                        <div class="tbb-fill" style="--w:96%"></div>
+                                    </div>
+                                    <span>96%</span>
+                                </div>
+                                <div class="tbb-item">
+                                    <span>Ventilación</span>
+                                    <div class="tbb">
+                                        <div class="tbb-fill" style="--w:78%"></div>
+                                    </div>
+                                    <span>78%</span>
+                                </div>
+                                <div class="tbb-item">
+                                    <span>Confort</span>
+                                    <div class="tbb">
+                                        <div class="tbb-fill" style="--w:89%"></div>
+                                    </div>
+                                    <span>89%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TECH FEATURES -->
+                <div class="tech-features reveal-r">
+                    <span class="eyebrow">Tecnología GX</span>
+                    <h2>PROTECCIÓN<br><em class="blue-text">NIVEL PRO</em></h2>
+                    <div class="feat-list">
+                        <div class="feat-item">
+                            <div class="feat-ico"><i class="ph ph-shield-checkered"></i></div>
+                            <div>
+                                <h3>Carbono Aeroespacial</h3>
+                                <p>Estructura monocasco que absorbe un 40% más de energía cinética en impactos frontales
+                                    y laterales que cualquier casco competidor.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <div class="feat-ico"><i class="ph ph-brain"></i></div>
+                            <div>
+                                <h3>Ajuste Bio-Métrico</h3>
+                                <p>Interior de gel inteligente que se adapta a la forma exacta de tu cráneo en minutos,
+                                    garantizando ajuste perfecto y sin presión.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <div class="feat-ico"><i class="ph ph-wind"></i></div>
+                            <div>
+                                <h3>Aerodinámica Activa</h3>
+                                <p>Canales de ventilación asistida que mantienen tu cabeza 8°C más fresca durante el
+                                    juego, maximizando tu rendimiento cognitivo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#custom" class="btn-primary"
+                        style="margin-top:40px;display:inline-flex;align-items:center;gap:10px;">
+                        <i class="ph ph-arrow-right"></i> Configura tu casco
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="nosotros"
+            style="padding: 100px 5%; background: var(--dark2); border-top: 1px solid var(--border);">
+            <div class="s-head" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <span class="eyebrow" style="color: var(--blue); font-weight: 700; letter-spacing: 2px;">ADN GORILLA
+                    X</span>
+                <h2 style="font-family: 'Archivo Black', sans-serif; font-size: 2.5rem; margin-top: 10px;">NUESTRA
+                    FILOSOFÍA</h2>
+                <p style="margin-top: 20px; color: var(--lt); font-size: 1.1rem;">
+                    En Gorilla X no fabricamos simple equipamiento; diseñamos armaduras inteligentes. Somos una empresa
+                    nacida de la necesidad de proteger al atleta moderno con tecnología de grado aeroespacial.
+                </p>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto;">
+                <div
+                    style="background: var(--card); padding: 40px; border: 1px solid var(--border); border-radius: 4px;">
+                    <h3 style="color: var(--blue); margin-bottom: 15px; font-family: 'Archivo Black';">MISIÓN</h3>
+                    <p style="color: #ccc; line-height: 1.6;">Revolucionar la seguridad en el fútbol americano mediante
+                        ingeniería bio-inspirada, permitiendo que cada jugador alcance su máximo potencial sin miedo al
+                        impacto.</p>
+                </div>
+                <div
+                    style="background: var(--card); padding: 40px; border: 1px solid var(--border); border-radius: 4px;">
+                    <h3 style="color: var(--blue); margin-bottom: 15px; font-family: 'Archivo Black';">VISIÓN</h3>
+                    <p style="color: #ccc; line-height: 1.6;">Convertirnos en el estándar mundial de protección
+                        deportiva, donde la tecnología y la salud del deportista sean inseparables.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="media" style="padding: 80px 5%; text-align: center; background: var(--dark);">
+            <h2 style="font-family: 'Archivo Black'; margin-bottom: 40px;">CAMPAÑA "DOMINA EL IMPACTO"</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <a href="https://www.instagram.com/reel/DWW7I-mAQFV/
+" target="_blank" class="btn-primary"
+                    style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <i class="ph-bold ph-play-circle" style="font-size: 1.5rem;"></i>
+                    Ver Anuncio TV
+                </a>
+
+                <a href="#" id="btnRadio" class="btn-outline"
+                    style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; border: 1px solid var(--blue); color: white; padding: 12px 25px;">
+                    <i class="ph-bold ph-broadcast" style="font-size: 1.5rem;"></i>
+                    Escuchar Cuña Radio
+                </a>
+
+                <audio id="audioCuña">
+                    <source src="audioRadioGorillaX.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+
+        <section id="contacto" style="padding: 100px 5%; background: var(--dark2);">
+            <div class="s-head" style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-family: 'Archivo Black';">CONTACTA CON NOSOTROS</h2>
+                <p style="text-align: center; margin-inline: auto;">¿Necesitas equipar a tu equipo? Cuéntanos qué
+                    necesitas.</p>
+            </div>
+            <form style="max-width: 600px; margin: 0 auto; display: grid; gap: 20px;">
+                <input type="text" placeholder="Nombre completo" required
+                    style="width: 100%; padding: 15px; background: var(--dark); border: 1px solid var(--border); color: white; font-family: 'Rajdhani';">
+                <input type="email" placeholder="Email corporativo" required
+                    style="width: 100%; padding: 15px; background: var(--dark); border: 1px solid var(--border); color: white; font-family: 'Rajdhani';">
+                <textarea placeholder="Cuéntanos tu necesidad..." rows="5"
+                    style="width: 100%; padding: 15px; background: var(--dark); border: 1px solid var(--border); color: white; font-family: 'Rajdhani';"></textarea>
+                <button type="submit" class="btn-primary" style="cursor: pointer; border: none;">ENVIAR
+                    SOLICITUD</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ================================
+     FOOTER
+================================ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">GORILLA<em>X</em></div>
+                <p>Redefiniendo los límites del equipamiento profesional de fútbol americano.</p>
+
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/gorillaxweb" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="https://www.tiktok.com/@gorillaxweb" target="_blank" rel="noopener" aria-label="TikTok"><i
+                            class="ph ph-tiktok-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tienda</h4>
+                <a href="#productos">Equipación</a>
+                <a href="#custom">Custom</a>
+                <a href="#">Equipos</a>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <a href="#nosotros">Sobre GX</a>
+                <a href="#tecnologia">Tecnología</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="footer-col">
+                <h4>Soporte</h4>
+                <a href="#">Envíos</a>
+                <a href="#">Devoluciones</a>
+                <a href="#">Tallas</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GORILLA X SYSTEMS</p>
+            <p>PROYECTO 1º DAW · IES ALMUDEYNE</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
